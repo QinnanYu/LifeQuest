@@ -17,9 +17,9 @@ body {
   margin: 0;
   padding: 0;
 }
+
 body {
-  font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial,
-    sans-serif;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
   background: var(--bg);
   color: var(--text);
   line-height: 1.6;
@@ -29,6 +29,7 @@ a {
   color: var(--text);
   text-decoration: none;
 }
+
 a:hover {
   text-decoration: underline;
 }
@@ -48,6 +49,7 @@ a:hover {
   padding: 0.5rem 0.75rem;
   border-radius: 0.5rem;
 }
+
 .skip-link:focus {
   left: 1rem;
   top: 1rem;
@@ -99,6 +101,7 @@ a:hover {
   border-radius: 0.75rem;
   background: rgba(255, 255, 255, 0.03);
 }
+
 .nav a[aria-current="page"] {
   border-color: rgba(139, 92, 246, 0.6);
   box-shadow: 0 0 0 2px rgba(139, 92, 246, 0.15) inset;
@@ -137,7 +140,7 @@ small {
   color: var(--muted);
 }
 
-/* Profile Section Styles */
+/* Profile Section */
 .profile-section {
   margin-bottom: 1.5rem;
 }
@@ -158,25 +161,31 @@ small {
   margin: 0.5rem 0;
 }
 
-/* Phase Note Styles */
+/* Phase Note */
 .phase-note {
   margin-top: 1rem;
 }
 
-/* ==================== Phase 2 Habits ==================== */
+/* Habits */
 .habits-form {
+  margin-top: 1rem;
+}
+
+.habits-form form {
   display: flex;
   flex-direction: column;
   gap: 1.2rem;
+  width: 100%;
 }
 
 .form-group {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
+  width: 100%;
 }
 
-.form-group label {
+.form-group > label {
   font-weight: 500;
   color: var(--accent);
 }
@@ -184,6 +193,8 @@ small {
 .form-group input,
 .form-group select,
 .form-group textarea {
+  width: 100%;
+  max-width: 100%;
   padding: 0.8rem;
   border: 1px solid var(--border);
   border-radius: 0.75rem;
@@ -191,6 +202,24 @@ small {
   font-size: 1rem;
   background: var(--bg);
   color: var(--text);
+}
+
+.form-group fieldset {
+  width: 100%;
+  max-width: 100%;
+  border: 1px solid var(--border);
+  border-radius: 0.75rem;
+  padding: 1rem;
+  margin: 0;
+}
+
+.form-group fieldset p {
+  margin: 0.75rem 0;
+}
+
+.form-group input[type="radio"] {
+  width: auto;
+  margin-right: 0.5rem;
 }
 
 .form-group input:focus,
@@ -201,7 +230,7 @@ small {
   box-shadow: 0 0 0 2px rgba(139, 92, 246, 0.15);
 }
 
-/* ==================== Phase 2 Achievements ==================== */
+/* Achievements */
 .achievements-grid {
   display: grid;
   gap: 1rem;
@@ -246,7 +275,7 @@ small {
   font-size: 1.2rem;
 }
 
-/* ==================== Phase 2 Button style ==================== */
+/* Button */
 .btn {
   border: 1px solid var(--accent);
   background: rgba(139, 92, 246, 0.1);
@@ -256,59 +285,47 @@ small {
   cursor: pointer;
   font-size: 1rem;
   transition: background-color 0.3s ease;
+  width: auto;
+  align-self: flex-start;
 }
 
 .btn:hover {
   background: rgba(139, 92, 246, 0.2);
 }
 
-/* ==================== Phase 2 Responsive Optimization ==================== */
+/* Responsive */
 @media (max-width: 768px) {
-  /* 仅适配你的核心页面 */
   .achievements-grid {
     grid-template-columns: 1fr;
   }
-  
-  .habits-form {
-    padding: 0 0.5rem;
+
+  .habits-form form {
+    display: flex;
+    flex-direction: column;
   }
-  
+
   .form-group {
     width: 100%;
   }
 }
 
-@media (min-width: 768px) and (max-width: 1024px) {
-  /* 仅适配你的核心页面 */
-  .habits-form {
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-between;
-  }
-  
-  .form-group {
-    width: 48%;
-  }
-  
-  .achievements-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
 @media (min-width: 1024px) {
-  /* 仅适配你的核心页面 */
-  .habits-form {
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-between;
+  .habits-form form {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem 1.25rem;
   }
-  
+
   .form-group {
-    width: 23%;
+    width: 100%;
+  }
+
+  .form-group:last-child {
+    grid-column: 1 / -1;
   }
 }
 
-/* ==================== Phase 2 Footer Material Source Attribution ==================== */
+/* Footer Credits */
 .footer-credits {
   margin-top: 1rem;
   font-size: 0.9rem;
