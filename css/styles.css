@@ -225,3 +225,7 @@ small {
 .card form button[type="submit"]:hover {
   background: #7c3aed;
 }
+
+.card + .card {
+  margin-top: 1.5rem;
+}
