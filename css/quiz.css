@@ -226,3 +226,15 @@
     text-align: center;
   }
 }
+
+@media (min-width: 1024px) {
+  .color-card {
+    height: 280px;
+  }
+  .color-text {
+    font-size: 5rem;
+  }
+  .options {
+    gap: 1.5rem;
+  }
+}
