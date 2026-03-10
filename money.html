@@ -13,7 +13,7 @@
     <header class="site-header">
       <div class="container">
         <div class="brand">
-          <div class="brand-mark"></div>
+          <div class="brand-mark" aria-hidden="true"></div>
           <div>
             <h1>LifeQuest</h1>
             <p>Level up your life skills through small daily wins.</p>
@@ -22,11 +22,12 @@
 
         <nav class="nav" aria-label="Primary">
           <a data-nav href="index.html">Home</a>
-          <a data-nav href="dashboard.html">Dashboard</a>
           <a data-nav href="money.html" aria-current="page">Money Manager</a>
           <a data-nav href="habits.html">Healthy Habits</a>
           <a data-nav href="productivity.html">Productivity Arena</a>
           <a data-nav href="achievements.html">Achievements</a>
+          <a data-nav href="quiz.html">Quiz Game</a>
+          <a data-nav href="journaling.html">Journaling</a>
           <a data-nav href="about.html">About</a>
           <a data-nav href="contact.html">Contact</a>
         </nav>
@@ -34,123 +35,127 @@
     </header>
 
     <main id="main">
-    <div class="container">
-        <header class="budget-summary">
-        <h2>Budget Summary</h2>
+      <div class="container">
 
-        <p class="kicker">
+        <section class="budget-summary" aria-labelledby="budget-heading">
+          <h2 id="budget-heading">Budget Summary</h2>
+
+          <p class="kicker">
             Current Budget: $
             <strong><span id="currentIncome">0</span></strong>
-        </p>
+          </p>
 
-        <div class="budget-bar-wrap">
+          <div class="budget-bar-wrap" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="Budget used">
             <div id="budgetBar" class="budget-bar"></div>
-        </div>
+          </div>
 
-        <p class="remaining-text">
+          <p class="remaining-text">
             Remaining Budget: $
             <strong><span id="remaining">0</span></strong>
-        </p>
+          </p>
 
-        <p class="budget-feedback" id="budgetFeedback"></p>
+          <p class="budget-feedback" id="budgetFeedback"></p>
 
-        <div class="income-set">
+          <div class="income-set">
+            <label for="incomeInput" class="visually-hidden">Monthly income</label>
             <input
-            type="number"
-            id="incomeInput"
-            placeholder="Enter monthly income"
-            min="0"
+              type="number"
+              id="incomeInput"
+              placeholder="Enter monthly income"
+              min="0"
             />
-            <button id="setIncomeBtn">Set Income</button>
-        </div>
-        </header>
-
-        <section class="grid" id="expensesGrid">
-        <article class="card add-expense" id="addExpenseCard">
-            <div class="plus">+</div>
-            <p>New Expense</p>
-        </article>
+            <button id="setIncomeBtn" type="button">Set Income</button>
+          </div>
         </section>
 
-        <!-- DESCRIPTION SECTIONS -->
-        <section class="card description-card">
-        <h3>Understanding Budget Categories</h3>
-        <p>
+        <section class="grid" id="expensesGrid" aria-label="Expenses">
+          <article class="card add-expense" id="addExpenseCard" role="button" tabindex="0" aria-label="Add new expense">
+            <div class="plus" aria-hidden="true">+</div>
+            <p>New Expense</p>
+          </article>
+        </section>
+
+        <section class="card description-card" aria-labelledby="categories-heading">
+          <h3 id="categories-heading">Understanding Budget Categories</h3>
+          <p>
             Budget categories help you organize your spending and understand
             how your money is being used each month.
-        </p>
+          </p>
 
-        <ul>
+          <ul>
             <li><strong>Needs:</strong> Rent, groceries, utilities</li>
             <li><strong>Wants:</strong> Entertainment, dining out</li>
             <li><strong>Savings:</strong> Emergency fund, future goals</li>
-        </ul>
+          </ul>
         </section>
 
-        <section class="card description-card">
-        <h3>Example Expense Categories</h3>
+        <section class="card description-card" aria-labelledby="examples-heading">
+          <h3 id="examples-heading">Example Expense Categories</h3>
 
-        <table>
+          <table>
             <thead>
-            <tr>
-                <th>Category</th>
-                <th>Examples</th>
-            </tr>
+              <tr>
+                <th scope="col">Category</th>
+                <th scope="col">Examples</th>
+              </tr>
             </thead>
             <tbody>
-            <tr>
+              <tr>
                 <td>Needs</td>
                 <td>Rent, Utilities, Groceries</td>
-            </tr>
-            <tr>
+              </tr>
+              <tr>
                 <td>Wants</td>
                 <td>Games, Restaurants</td>
-            </tr>
-            <tr>
+              </tr>
+              <tr>
                 <td>Savings</td>
                 <td>Emergency Fund</td>
-            </tr>
+              </tr>
             </tbody>
-        </table>
+          </table>
         </section>
 
-        <section class="card description-card">
-        <h3>Example Expense Entry</h3>
-        <p>This example shows what information is needed to add an expense.</p>
+        <section class="card description-card" aria-labelledby="entry-heading">
+          <h3 id="entry-heading">Example Expense Entry</h3>
+          <p>This example shows what information is needed to add an expense.</p>
 
-        <form>
-            <label>
-            Expense Name
-            <input type="text" placeholder="e.g. Rent" disabled />
+          <form>
+            <label for="demoName">
+              Expense Name
+              <input type="text" id="demoName" placeholder="e.g. Rent" disabled />
             </label>
 
-            <label>
-            Category
-            <select disabled>
+            <label for="demoCategory">
+              Category
+              <select id="demoCategory" disabled>
                 <option>Needs</option>
                 <option>Wants</option>
                 <option>Savings</option>
-            </select>
+              </select>
             </label>
 
-            <label>
-            Amount ($)
-            <input type="number" placeholder="e.g. 1200" disabled />
+            <label for="demoAmount">
+              Amount ($)
+              <input type="number" id="demoAmount" placeholder="e.g. 1200" disabled />
             </label>
-        </form>
+          </form>
         </section>
-    </div>
+
+      </div>
     </main>
 
     <footer class="site-footer">
       <div class="container">
         <p>
-          © 2026 LifeQuest Team ·
-          <a href="about.html">About this project</a>
+          <strong>Credits:</strong> Productivity Arena inspired by Zoho.
+        </p>
+        <p>
+          <small>&copy; <span data-year></span> LifeQuest Team.</small>
         </p>
       </div>
     </footer>
-    
+
     <script src="js/money.js"></script>
   </body>
 </html>
